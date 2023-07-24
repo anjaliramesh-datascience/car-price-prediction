@@ -7,4 +7,4 @@ catboost==0.24.4
 xgboost
 Flask
 dill
--e .
+# -e .

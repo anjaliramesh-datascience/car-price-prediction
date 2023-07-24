@@ -52,7 +52,7 @@ coverage.xml
 cover/
 .DS_Store
 car-price-prediction/
-catboost_info
+# catboost_info
 
 
 # Translations
@@ -64,8 +64,8 @@ catboost_info
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-./catboost_info/*
-./notebook/catboost_info/*
+# ./catboost_info/*
+# ./notebook/catboost_info/*
 
 # Flask stuff:
 instance/

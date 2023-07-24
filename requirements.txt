@@ -1,8 +1,10 @@
 pandas
 numpy
-scikit-learn
-xgboost
-lightgbm
-matplotlib
 seaborn
-plotly
+matplotlib
+scikit-learn
+catboost==0.24.4
+xgboost
+Flask
+
+#-e .

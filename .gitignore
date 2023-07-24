@@ -51,7 +51,9 @@ coverage.xml
 .pytest_cache/
 cover/
 .DS_Store
-Car-price-prediction/
+car-price-prediction/
+catboost_info
+
 
 # Translations
 *.mo
@@ -62,7 +64,7 @@ Car-price-prediction/
 local_settings.py
 db.sqlite3
 db.sqlite3-journal
-
+catboost_info/*
 
 # Flask stuff:
 instance/

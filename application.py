@@ -1,10 +1,9 @@
 from flask import Flask, request, render_template, jsonify
 import os
-script_dir = os.path.dirname(os.path.abspath(__file__))
-os.chdir(script_dir)
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
 application = Flask(__name__)
+app = application
 
 @app.route('/')
 def home_page():

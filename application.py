@@ -70,7 +70,7 @@ def predict_api():
                 turbo=int(request.json['turbo'])
                 )
         
-        red_df = data.get_data_as_dataframe()
+        pred_df = data.get_data_as_dataframe()
         predict_pipeline = PredictPipeline()
         pred = predict_pipeline.predict(pred_df)
 
@@ -78,4 +78,4 @@ def predict_api():
         return jsonify(dct)
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8000)
+    app.run(host='0.0.0.0')

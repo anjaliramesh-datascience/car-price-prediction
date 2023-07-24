@@ -6,5 +6,6 @@ scikit-learn
 catboost==0.24.4
 xgboost
 Flask
+flask-cors
 dill
 # -e .

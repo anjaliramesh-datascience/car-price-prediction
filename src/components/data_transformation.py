@@ -77,7 +77,7 @@ class DataTransformation:
             logging.info('Exception occured in Data Transformation Phase')
             raise CustomException(e,sys)
         
-    def initate_data_transformation(self,train_path,test_path):
+    def initiate_data_transformation(self,train_path,test_path):
 
         try:
             # Reading train and test data
@@ -94,10 +94,10 @@ class DataTransformation:
 
             target_column_name = 'price'
 
-            # input_feature_train_df = train_df.drop(columns=drop_columns,axis=1)
+            input_feature_train_df = train_df
             target_feature_train_df=train_df[target_column_name]
 
-            # input_feature_test_df=test_df.drop(columns=drop_columns,axis=1)
+            input_feature_test_df=test_df
             target_feature_test_df=test_df[target_column_name]
 
             logging.info("Applying preprocessing object on training and testing datasets.")

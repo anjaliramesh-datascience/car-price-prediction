@@ -33,7 +33,7 @@ class ModelTrainer:
     def __init__(self):
         self.model_trainer_config = ModelTrainerConfig()
     
-    def initate_model_training(self,train_array,test_array):
+    def initiate_model_training(self,train_array,test_array):
         try:
             logging.info('Splitting Dependent and Independent variables from train and test data')
             xtrain, ytrain, xtest, ytest = (
@@ -76,7 +76,35 @@ class ModelTrainer:
             print(f'Best Model Found , Model Name : {best_model_name} , R2 Score : {best_model_score}')
             print('\n====================================================================================\n')
             logging.info(f'Best Model Found , Model Name : {best_model_name} , R2 Score : {best_model_score}')
-            logging.info('Hyperparameter tuning started for catboost')
+            logging.info('Hyperparameter tuning started for random forest and catboost')
+
+            # Initializing RandomForestRegressor
+            rfr = RandomForestRegressor()
+
+            # Creating the hyperparameter grid
+            param_dist = {
+                'n_estimators': [100, 200, 300, 400, 500],
+                'max_depth': [None, 5, 10, 15, 20],
+                'min_samples_split': [2, 5, 10],
+                'min_samples_leaf': [1, 2, 4],
+                'max_features': ['auto', 'sqrt'],
+                'bootstrap': [True, False]
+            }
+
+            # Instantiate RandomSearchCV object
+            rscv = RandomizedSearchCV(rfr, param_distributions=param_dist, scoring='r2', cv=5, n_jobs=-1)
+
+            # Fit the model
+            rscv.fit(xtrain, ytrain)
+
+            # Print the tuned parameters and score
+            print(f'Best RandomForest parameters: {rscv.best_params_}')
+            print(f'Best RandomForest Score: {rscv.best_score_}')
+            print('\n====================================================================================\n')
+
+            best_rfr = rscv.best_estimator_
+
+            logging.info('Hyperparameter tuning complete for RandomForest')
 
             # Hyperparameter tuning on Catboost
             # Initializing catboost
@@ -102,32 +130,11 @@ class ModelTrainer:
 
             logging.info('Hyperparameter tuning complete for Catboost')
 
-            logging.info('Hyperparameter tuning started for KNN')
-
-            # Initialize knn
-            knn = KNeighborsRegressor()
-
-            # parameters
-            k_range = list(range(2, 31))
-            param_grid = dict(n_neighbors=k_range)
-
-            # Fitting the cvmodel
-            grid = GridSearchCV(knn, param_grid, cv=5, scoring='r2',n_jobs=-1)
-            grid.fit(xtrain, ytrain)
-
-            # Print the tuned parameters and score
-            print(f'Best KNN Parameters : {grid.best_params_}')
-            print(f'Best KNN Score : {grid.best_score_}')
-            print('\n====================================================================================\n')
-
-            best_knn = grid.best_estimator_
-
-            logging.info('Hyperparameter tuning Complete for KNN')
 
             logging.info('Voting Regressor model training started')
 
             # Creating final Voting regressor
-            er = VotingRegressor([('cbr',best_cbr),('xgb',XGBRegressor()),('knn',best_knn)], weights=[3,2,1])
+            er = VotingRegressor([('rf',best_rfr), ('cbr',best_cbr),('xgb',XGBRegressor())], weights=[3,2,1])
             er.fit(xtrain, ytrain)
             print('Final Model Evaluation :\n')
             print_evaluated_results(xtrain,ytrain,xtest,ytest,er)

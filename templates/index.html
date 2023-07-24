@@ -9,7 +9,7 @@
 <h1>Car Price Prediction - Anjali Ramesh</h1>
 <img src="{{url_for('static', filename='/Image/your_profile_pic.jpeg')}}" alt="Your Profile Picture" class="profile">
 <div class="form-box">
-    <form action="{{url_for('predict_car_price')}}" method="POST">
+    <form action="{{url_for('predict_datapoint')}}" method="POST">
         <div class="form-group">
             <label for="levy">Levy:</label>
             <input type="text" id="levy" name="levy" placeholder="Enter Levy value (float)">
@@ -25,10 +25,10 @@
                 <option value="Mercedes-Benz">Mercedes-Benz</option>
                 <option value="Nissan">Nissan</option>
                 <option value="Chevrolet">Chevrolet</option>
-                <option value="Other">Other</option>
                 <option value="Ssangyong">Ssangyong</option>
                 <option value="Kia">Kia</option>
                 <option value="Lexus">Lexus</option>
+                <option value="Other">Other</option>
             </select>   
         </div>
 
@@ -59,7 +59,12 @@
 
         <div class="form-group">
             <label for="fuel_type">Fuel Type:</label>
-            <input type="text" id="fuel_type" name="fuel_type" placeholder="Enter Fuel Type">
+            <select id = "fuel_type" name="fuel_type"></select>
+                <option value="Hybrid">Hybrid</option>
+                <option value="Petrol">Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="Other">Other</option>
+            </select>
         </div>
 
         <div class="form-group">
@@ -79,27 +84,52 @@
 
         <div class="form-group">
             <label for="gear_box_type">Gear Box Type:</label>
-            <input type="text" id="gear_box_type" name="gear_box_type" placeholder="Enter Gear Box Type">
+            <select id="gear_box_type" name="gear_box_type">
+                <option value="Automatic">Automatic</option>
+                <option value="Tiptronic">Tiptronic</option>
+                <option value="Manual">Manual</option>
+                <option value="Variator">Variator</option>
+            </select>
+            
         </div>
 
         <div class="form-group">
             <label for="drive_wheels">Drive Wheels:</label>
-            <input type="text" id="drive_wheels" name="drive_wheels" placeholder="Enter Drive Wheels">
+            <select id="drive_wheels" name="drive_wheels">
+                <option value="4x4">4x4</option>
+                <option value="Front">Front</option>
+                <option value="Rear">Rear</option>
+            </select>
         </div>
 
         <div class="form-group">
             <label for="doors">Doors:</label>
-            <input type="text" id="doors" name="doors" placeholder="Enter Doors">
+            <select id="doors" name="doors">
+                <option value="4-5">4-5</option>
+                <option value=">5">>5</option>
+                <option value="2-3">2-3</option>
+            </select>
         </div>
 
         <div class="form-group">
             <label for="wheel">Wheel:</label>
-            <input type="text" id="wheel" name="wheel" placeholder="Enter Wheel">
+            <select id="wheel" name="wheel">
+                <option value="Left wheel">Left wheel</option>
+                <option value="Right-hand drive">Right-hand drive</option>
+            </select>
+            
         </div>
 
         <div class="form-group">
             <label for="color">Color:</label>
-            <input type="text" id="color" name="color" placeholder="Enter Color">
+            <select id="color" name="color">
+                <option value="Silver">Silver</option>
+                <option value="Black">Black</option>
+                <option value="White">White</option>
+                <option value="Grey">Grey</option>
+                <option value="Blue">Blue</option>
+                <option value="Other">Other</option>
+            </select>
         </div>
 
         <div class="form-group">
@@ -118,7 +148,7 @@
 </div>
 <div>
     <h2>
-        Predicted Car Price is: {{ predicted_price }}
+        Predicted Car Price is: {{ results }}
     </h2>
 </div>
 </body>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Car Price Prediction</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+<a href="https://github.com/anjaliramesh-datascience/car-price-prediction" class="top-left-link" target="_blank">GitHub Repository Link</a>
+<h1>Car Price Prediction - Anjali Ramesh</h1>
+<img src="{{url_for('static', filename='/Image/your_profile_pic.jpeg')}}" alt="Your Profile Picture" class="profile">
+<div class="form-box">
+    <form action="{{url_for('predict_car_price')}}" method="POST">
+        <div class="form-group">
+            <label for="levy">Levy:</label>
+            <input type="text" id="levy" name="levy" placeholder="Enter Levy value (float)">
+        </div>
+
+        <div class="form-group">
+            <label for="manufacturer">Manufacturer:</label>
+            <input type="text" id="manufacturer" name="manufacturer" placeholder="Enter Manufacturer">
+        </div>
+
+        <div class="form-group">
+            <label for="year">Year:</label>
+            <input type="text" id="year" name="year" placeholder="Enter Year (int)">
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <input type="text" id="category" name="category" placeholder="Enter Category">
+        </div>
+
+        <div class="form-group">
+            <label for="leather_interior">Leather Interior:</label>
+            <input type="text" id="leather_interior" name="leather_interior" placeholder="Enter Leather Interior (int)">
+        </div>
+
+        <div class="form-group">
+            <label for="fuel_type">Fuel Type:</label>
+            <input type="text" id="fuel_type" name="fuel_type" placeholder="Enter Fuel Type">
+        </div>
+
+        <div class="form-group">
+            <label for="engine_volume">Engine Volume:</label>
+            <input type="text" id="engine_volume" name="engine_volume" placeholder="Enter Engine Volume (float)">
+        </div>
+
+        <div class="form-group">
+            <label for="mileage">Mileage:</label>
+            <input type="text" id="mileage" name="mileage" placeholder="Enter Mileage (int)">
+        </div>
+
+        <div class="form-group">
+            <label for="cylinders">Cylinders:</label>
+            <input type="text" id="cylinders" name="cylinders" placeholder="Enter Cylinders (float)">
+        </div>
+
+        <div class="form-group">
+            <label for="gear_box_type">Gear Box Type:</label>
+            <input type="text" id="gear_box_type" name="gear_box_type" placeholder="Enter Gear Box Type">
+        </div>
+
+        <div class="form-group">
+            <label for="drive_wheels">Drive Wheels:</label>
+            <input type="text" id="drive_wheels" name="drive_wheels" placeholder="Enter Drive Wheels">
+        </div>
+
+        <div class="form-group">
+            <label for="doors">Doors:</label>
+            <input type="text" id="doors" name="doors" placeholder="Enter Doors">
+        </div>
+
+        <div class="form-group">
+            <label for="wheel">Wheel:</label>
+            <input type="text" id="wheel" name="wheel" placeholder="Enter Wheel">
+        </div>
+
+        <div class="form-group">
+            <label for="color">Color:</label>
+            <input type="text" id="color" name="color" placeholder="Enter Color">
+        </div>
+
+        <div class="form-group">
+            <label for="airbags">Airbags:</label>
+            <input type="text" id="airbags" name="airbags" placeholder="Enter Airbags (int)">
+        </div>
+
+        <div class="form-group">
+            <label for="turbo">Turbo:</label>
+            <input type="text" id="turbo" name="turbo" placeholder="Enter Turbo (int)">
+        </div>
+
+        <div style="clear:both;"></div>
+        <input type="submit" value="Submit">
+    </form>
+</div>
+<div>
+    <h2>
+        Predicted Car Price is: {{ predicted_price }}
+    </h2>
+</div>
+</body>
+</html>

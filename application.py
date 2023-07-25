@@ -31,7 +31,7 @@ def predict_datapoint():
             wheel=request.form.get('wheel'),
             color=request.form.get('color'),
             airbags=int(request.form.get('airbags')),
-            turbo=int(request.form.get('turbo'))
+            turbo=request.form.get('turbo')
         )
         
         pred_df = data.get_data_as_dataframe()
@@ -61,7 +61,7 @@ def predict_api():
             wheel=request.json['wheel'],
             color=request.json['color'],
             airbags=int(request.json['airbags']),
-            turbo=int(request.json['turbo'])
+            turbo=request.json['turbo']
         )
         
         pred_df = data.get_data_as_dataframe()

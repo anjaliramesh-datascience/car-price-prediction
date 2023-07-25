@@ -16,7 +16,7 @@ def predict_datapoint():
         return render_template('index.html')
     else:
         data = CustomData(
-            levy=float(request.form.get('levy'))
+            levy=float(request.form.get('levy')),
             manufacturer=request.form.get('manufacturer'),
             year=int(request.form.get('year')),
             category=request.form.get('category'),
@@ -57,7 +57,7 @@ def predict_api():
             cylinders=float(request.json['cylinders']),
             gear_box_type=request.json['gear_box_type'],
             drive_wheels=request.json['drive_wheels'],
-            doors=int(request.json['doors']),
+            doors=request.json['doors'],
             wheel=request.json['wheel'],
             color=request.json['color'],
             airbags=int(request.json['airbags']),
@@ -72,7 +72,4 @@ def predict_api():
         return jsonify(dct)
 
 if __name__ == '__main__':
-    handler = logging.FileHandler('flask.log')  # Create a file handler
-    handler.setLevel(logging.ERROR)  # Set the logging level to ERROR
-    application.logger.addHandler(handler)  # Add the handler to your app's logger
     application.run(host='0.0.0.0', port = 8000)

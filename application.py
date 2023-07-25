@@ -16,10 +16,7 @@ def predict_datapoint():
         return render_template('index.html')
     else:
         data = CustomData(
-            try:
-                levy=float(request.form.get('levy'))
-            except ValueError:
-                levy=0.0,
+            levy=float(request.form.get('levy'))
             manufacturer=request.form.get('manufacturer'),
             year=int(request.form.get('year')),
             category=request.form.get('category'),

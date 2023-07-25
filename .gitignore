@@ -140,6 +140,7 @@ venv.bak/
 
 # Rope project settings
 .ropeproject
+./catboost_info/*
 
 # mkdocs documentation
 /site

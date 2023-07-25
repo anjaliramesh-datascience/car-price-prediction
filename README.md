@@ -20,14 +20,14 @@ for Categorical Variables SimpleImputer is applied with most frequent strategy, 
 This preprocessor is saved as pickle file.
 
 Model Training :
-In this phase base model is tested . The best model found was catboost regressor.
-After this hyperparameter tuning is performed on catboost and knn model.
-A final VotingRegressor is created which will combine prediction of catboost, xgboost and knn models.
+In this phase base model is tested . The best model found was random forest regressor.
+After this hyperparameter tuning is performed on random forest, catboost and xgboost.
+A final VotingRegressor is created which will combine prediction of catboost, xgboost and random forest models.
 This model is saved as pickle file.
 
 Prediction Pipeline :
 This pipeline converts given data into dataframe and has various functions to load pickle files and predict the final results in python.
 
 Flask App creation :
-Flask app is created with User Interface to predict the gemstone prices inside a Web Application.
+Flask app is created with User Interface to predict the car prices inside a Web Application.
 

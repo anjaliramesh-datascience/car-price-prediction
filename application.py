@@ -1,5 +1,6 @@
 from flask import Flask, request, render_template, jsonify
 import os
+from src.logger import logging
 from src.pipeline.predict_pipeline import CustomData, PredictPipeline
 
 application = Flask(__name__)
@@ -15,7 +16,10 @@ def predict_datapoint():
         return render_template('index.html')
     else:
         data = CustomData(
-            levy=float(request.form.get('levy')),
+            try:
+                levy=float(request.form.get('levy'))
+            except ValueError:
+                levy=0.0,
             manufacturer=request.form.get('manufacturer'),
             year=int(request.form.get('year')),
             category=request.form.get('category'),
@@ -26,7 +30,7 @@ def predict_datapoint():
             cylinders=float(request.form.get('cylinders')),
             gear_box_type=request.form.get('gear_box_type'),
             drive_wheels=request.form.get('drive_wheels'),
-            doors=int(request.form.get('doors')),
+            doors=request.form.get('doors'),
             wheel=request.form.get('wheel'),
             color=request.form.get('color'),
             airbags=int(request.form.get('airbags')),
@@ -71,4 +75,7 @@ def predict_api():
         return jsonify(dct)
 
 if __name__ == '__main__':
+    handler = logging.FileHandler('flask.log')  # Create a file handler
+    handler.setLevel(logging.ERROR)  # Set the logging level to ERROR
+    application.logger.addHandler(handler)  # Add the handler to your app's logger
     application.run(host='0.0.0.0', port = 8000)

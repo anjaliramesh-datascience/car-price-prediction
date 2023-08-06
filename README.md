@@ -72,8 +72,12 @@ AWS Elastic Beanstalk link : http://mlproject-env.eba-sci3j2gu.us-east-2.elastic
 
 ### Screenshot of the UI
 
-[](https://imgur.com/UsoR5jw.png)
+![](https://imgur.com/UsoR5jw.png)
 
 ## Exploratory Data Analysis
 
-Notebook link - 
+Notebook - [link](https://github.com/anjaliramesh-datascience/car-price-prediction/blob/main/notebook/Data%20Preprocessing%20and%20EDA.ipynb)
+
+## Model Training
+
+Notebook - [link](https://github.com/anjaliramesh-datascience/car-price-prediction/blob/main/notebook/Model%20Training.ipynb)

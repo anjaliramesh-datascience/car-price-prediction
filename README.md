@@ -2,9 +2,43 @@
 
 The dataset is obtained from [Kaggle](https://www.kaggle.com/datasets/deepcontractor/car-price-prediction-challenge).
 
-**Objective** - Predict the `Price` of a car (Regression Analysis)
+#### **Objective** - Predict the `Price` of a car (Regression Analysis)
 
-**The dataset** - The original dataset has 17 independent features (including the `ID` column)
+**Independent Features** - The original dataset has 17 independent features (including the `ID` column)
+
+`ID`: Unique identifier for each car entry (integer)
+
+`Levy`: Tax or fee applied to the car (object) 
+
+`Manufacturer`: The manufacturer or brand of the car (object) 
+
+`Model`: The model name of the car (object) 
+
+`Prod. year`: The production year of the car (integer) 
+
+`Category`: The category or type of the car (object) 
+
+`Leather interior`: Indicates whether the car has a leather interior or not (object) 
+
+`Fuel type`: The type of fuel used by the car (object) 
+
+`Engine volume`: The engine displacement or volume of the car (object) 
+
+`Mileage`: The distance traveled by the car (object) 
+
+`Cylinders`: The number of cylinders in the car's engine (float) 
+
+`Gear box type`: The type of gearbox used in the car (object) 
+
+`Drive wheels`: The type of drive wheels (object) 
+
+`Doors`: The number of doors in the car (object) 
+
+`Wheel`: The type of wheel (object) 
+
+`Color`: The color of the car (object) 
+
+`Airbags`: The number of airbags in the car (integer) 
 
 
 ## Approach for the project
@@ -31,3 +65,15 @@ This pipeline converts given data into dataframe and has various functions to lo
 Flask App creation :
 Flask app is created with User Interface to predict the car prices inside a Web Application.
 
+
+## AWS Deployment Link:
+
+AWS Elastic Beanstalk link : http://mlproject-env.eba-sci3j2gu.us-east-2.elasticbeanstalk.com/
+
+### Screenshot of the UI
+
+[](https://imgur.com/UsoR5jw.png)
+
+## Exploratory Data Analysis
+
+Notebook link - 
